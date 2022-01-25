@@ -3,16 +3,20 @@
 
 <div class="">
     <div class="container mx-auto lg:max-w-screen-lg py-5 px-4">
-        <div class="flex items-center gap-10">
+        <div class="flex items-center gap-4 md:gap-10">
             <div class="logo">
                 <a href="/" class="font-bold text-xl">Food</a>
             </div>
-            <ul class="navlinks-container flex flex-col md:flex-row items-center gap-5">
+            <!-- <ul class="navlinks-container flex flex-col md:flex-row items-center gap-5"> -->
+            <ul class="navlinks-container flex flex-row items-center gap-2 md:gap-5">
                 <li class="">
                     <a routerLink="/" routerLinkActive="font-semibold" [routerLinkActiveOptions]="{ exact: true }" class="navlinks">Home</a>
                 </li>
                 <li class="">
                     <a routerLink="/about" routerLinkActive="font-semibold" [routerLinkActiveOptions]="{ exact: true }" class="navlinks">About</a>
+                </li>
+                <li class="">
+                    <a routerLink="/cuisines" routerLinkActive="font-semibold" [routerLinkActiveOptions]="{ exact: true }" class="navlinks">Cuisines</a>
                 </li>
                 <li class="">
                     <a routerLink="/contact" routerLinkActive="font-semibold" [routerLinkActiveOptions]="{ exact: true }" class="navlinks">Contact</a>
