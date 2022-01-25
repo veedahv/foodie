@@ -1,0 +1,32 @@
+<!-- <p>testimonial-card works!</p> -->
+
+
+<div class="">
+    <div class="my-5">
+        <h3 class="name font-medium">{{ testimony.name }}</h3>
+        <p class="testimony text-sm">{{ testimony.testimony }}</p>
+    </div>
+    <div class="flex items-center justify-between">
+        <div class="">
+            <small class="profession text-sm font-medium">Professional tester</small>
+        </div>
+        <div class="flex items-center gap-1">
+            <button (click)="prev()" [disabled]="disablePrev">
+                <div class="" *ngIf="disablePrev;else prevNotDisabled">
+                    <i class="fas fa-long-arrow-alt-left text-slate-300 text-xl"></i>
+                </div>
+                <ng-template #prevNotDisabled>
+                    <i class="fas fa-long-arrow-alt-left text-gray-900 text-3xl"></i>
+                </ng-template>
+            </button>
+            <button (click)="next()" [disabled]="disableNext">
+                <div class="" *ngIf="disableNext;else nextNotDisabled">
+                    <i class="fas fa-long-arrow-alt-right text-slate-300 text-xl"></i>
+                </div>
+                <ng-template #nextNotDisabled>
+                    <i class="fas fa-long-arrow-alt-right text-gray-900 text-3xl"></i>
+                </ng-template>
+            </button>
+        </div>
+    </div>
+</div>
