@@ -45,7 +45,7 @@ export class TestimonialCardComponent implements OnInit {
   }
   next() {
     this.index += 1;
-    this.forward.emit(this.index)
+    this.forward.emit(this.index);
     this.index <= 0 ? this.disablePrev = true : this.disablePrev = false;
     this.index >= this.totalTestimonies ? this.disableNext = true : this.disableNext = false;
   }

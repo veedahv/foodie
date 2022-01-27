@@ -4,154 +4,62 @@
     <div class="container my-8 mx-auto lg:max-w-screen-lg py-5 px-4">
         <div class="text-center mb-4">
             <h2 class="section-title font-bold text-4xl">Our Cuisines</h2>
+            <p class="my-4">
+                Here are our varieties of sugary goodness
+            </p>
+        </div>
+        <div class="">
+            <div class="pagination w-max my-4 mx-auto">
+                <div
+                    class="pagination-row shadow rounded-full w-max bg-white flex flex-nowrap items-stretch text-center">
+                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to previous page"
+                        (click)="prevPage()" [disabled]="currentPage <= 0">
+                        <i class="fa fa-angle-left text-lg" [ngClass]="currentPage <= 0 ? 'text-gray-200' : ''"
+                            aria-hidden="true"></i>
+                    </button>
+                    <span class="px-3 py-2 bg-gray-50 text-sm font-medium">
+                        {{ currentPage + 1 }} of {{ totalPages }}
+                    </span>
+                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to next page" (click)="nextPage()"
+                        [disabled]="currentPage >= (totalPages - 1)">
+                        <i class="fa fa-angle-right text-lg"
+                            [ngClass]="currentPage >= (totalPages - 1) ? 'text-gray-200': ''" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
+            <!-- <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full" *ngFor="let item of cuisines.meals"> -->
+            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full"
+                *ngFor="let item of cuisinesCurrentPage">
+                <img src="{{ item.strMealThumb }}" alt="" class="card-img">
                 <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
+                    <div class="flex items-center justify-between gap-2 w-full">
+                        <p class="text-base font-medium">{{ item.strMeal }}</p>
                         <p class="price text-sm font-bold">$4.00</p>
                     </div>
                 </div>
             </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card overflow-hidden rounded-sm bg-white shadow flex flex-col h-full">
-                <img src="assets/images/dish.jpg" alt="" class="card-img">
-                <div class="cardbody px-4 py-5">
-                    <div class="flex items-center justify-between w-full">                        
-                        <p class="text-base font-medium">Pancakes</p>
-                        <p class="price text-sm font-bold">$4.00</p>
-                    </div>
+        </div>
+        <div class="">
+            <div class="pagination w-max my-4 mx-auto">
+                <div
+                    class="pagination-row shadow rounded-full w-max bg-white flex flex-nowrap items-stretch text-center">
+                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to previous page"
+                        (click)="prevPage()" [disabled]="currentPage <= 0">
+                        <i class="fa fa-angle-left text-lg" [ngClass]="currentPage <= 0 ? 'text-gray-200' : ''"
+                            aria-hidden="true"></i>
+                    </button>
+                    <span class="px-3 py-2 bg-gray-50 text-sm font-medium">
+                        {{ currentPage + 1 }} of {{ totalPages }}
+                    </span>
+                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to next page" (click)="nextPage()"
+                        [disabled]="currentPage >= (totalPages - 1)">
+                        <i class="fa fa-angle-right text-lg"
+                            [ngClass]="currentPage >= (totalPages - 1) ? 'text-gray-200': ''" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
