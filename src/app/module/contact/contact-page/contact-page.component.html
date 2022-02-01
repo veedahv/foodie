@@ -36,17 +36,17 @@
                 <form [formGroup]="checkoutForm" class="form" (ngSubmit)="onSubmit()">
                     <div class="input-group my-4">
                         <label for="userId" class="label font-medium text-md">User Id</label>
-                        <input type="number" id="userId" class="w-full border border-gray-300 outline-none px-4 py-2" formControlName="userId">
+                        <input type="number" id="userId" class="w-full border border-gray-300 outline-none px-4 py-2" formControlName="userId" required>
                     </div>
                     <div class="input-group my-4">
                         <label for="title" class="label font-medium text-md">Title</label>
                         <input type="text" name="" class="w-full border border-gray-300 outline-none px-4 py-2"
-                            id="title" formControlName="title">
+                            id="title" formControlName="title" required>
                     </div>
                     <div class="input-group my-4">
                         <label for="body" class="label font-medium text-md">Body</label>
                         <textarea name="" class="w-full border border-gray-300 outline-none px-4 py-2" id="body"
-                            cols="30" rows="10" formControlName="body"></textarea>
+                            cols="30" rows="10" formControlName="body" required></textarea>
                     </div>
                     <div class="input-group my-4">
                         <button type="submit" class="w-full border border-gray-300 outline-none px-4 py-2">Submit</button>

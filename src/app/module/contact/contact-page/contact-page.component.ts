@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CuisinesService } from 'src/app/services/cuisines.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -15,22 +15,39 @@ export class ContactPageComponent implements OnInit {
   constructor(private cuisine: CuisinesService, private formBuilder: FormBuilder,) { }
 
   post: any = []
-
-  checkoutForm = this.formBuilder.group({
-    userId: '',
+  checkoutForm: FormGroup = this.formBuilder.group({
+    userId: ['', Validators.required],
     title: '',
     body: ''
   });
-
+  // userId: new FormControl(RequiredValidator),
+  
   ngOnInit() {
     // this.sendPost();
+      // this.checkoutForm = this.formBuilder.group({
+      //   userId: ['', Validators.required],
+      //   title: '',
+      //   body: ''
+      // });
   }
 
   sendPost() {
-    this.cuisine.create(JSON.stringify(this.checkoutForm.value)).subscribe(data => {
-      this.post = data;
-      console.log(this.post);
-    })
+    // let countrySelected = this.checkoutForm.get('userId').value;
+    // if(countrySelected === 'B') {
+    //   this.checkoutForm.get('county').setValidators([Validators.required]); // 5.Set Required Validator
+    //   this.checkoutForm.get('county').updateValueAndValidity();
+    // } else {
+    //   this.checkoutForm.get('county').clearValidators(); // 6. Clear All Validators
+    //   this.checkoutForm.get('county').updateValueAndValidity();
+    // }
+    if (this.checkoutForm.value.userId !== '' || this.checkoutForm.value.title !== '' || this.checkoutForm.value.body !== '') {
+      this.cuisine.create(JSON.stringify(this.checkoutForm.value)).subscribe(data => {
+        this.post = data;
+        console.log(this.post);
+      })      
+    } else {
+      alert('Input field(s) can not be empty');
+    }
   }
 
   onSubmit(): void {
