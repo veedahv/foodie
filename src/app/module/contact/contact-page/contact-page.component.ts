@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CuisinesService } from 'src/app/services/cuisines.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -16,7 +16,7 @@ export class ContactPageComponent implements OnInit {
 
   post: any = []
   postForm: FormGroup = this.formBuilder.group({
-    userId: ['', Validators.required],
+    userId: '',
     title: '',
     body: ''
   });
