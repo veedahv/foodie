@@ -1,4 +1,3 @@
-<!-- <p>posts-page works!</p> -->
 
 <section>
     <div class="container my-8 mx-auto lg:max-w-screen-lg py-5 px-4">
@@ -8,12 +7,7 @@
                 Here are our varieties of sugary goodness
             </p> -->
         </div>
-        <!-- <app-posts></app-posts> -->
-        <app-posts [post]="post[3]"></app-posts>
-        <!-- {{ post[3].title }} -->
-        <!-- <app-testimonial-card (backward)="slideReview($event)" (forward)="slideReview($event)"
-            [testimony]="testimonials[testimonialIndex]" [totalTestimonies]="totalTestimonies">
-        </app-testimonial-card> -->
+        <app-posts [post]="updatePost" [postIndex]="postIndex" *ngIf="viewEditModal" (updatedPost)="updatePosts($event)" (cancelPost)="viewEditModal = false"></app-posts>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="card overflow-hidden rounded-md bg-white shadow-lg flex flex-col h-full"
                 *ngFor="let item of post; let i = index">
@@ -23,7 +17,9 @@
                         <p class="text-sm mt-3">{{ item.body }}</p>
                     </div>
                     <div class="flex items-center mt-4 gap-4">
-                        <button class="btn rounded outline-none text-sm uppercase font-medium text-white bg-blue-400 px-2 py-1">edit</button>
+                        <button class="btn rounded outline-none text-sm uppercase font-medium text-white bg-blue-400 px-2 py-1" (click)="editPost(item, i)">
+                            edit
+                        </button>
                         <button class="btn rounded outline-none text-sm uppercase font-medium text-white bg-red-400 px-2 py-1" (click)="deletePosts(item.id, i)">
                             del
                         </button>
@@ -31,25 +27,5 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="">
-            <div class="pagination w-max my-4 mx-auto">
-                <div
-                    class="pagination-row shadow rounded-full w-max bg-white flex flex-nowrap items-stretch text-center">
-                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to previous page"
-                        (click)="prevPage()" [disabled]="currentPage <= 0">
-                        <i class="fa fa-angle-left text-lg" [ngClass]="currentPage <= 0 ? 'text-gray-200' : ''"
-                            aria-hidden="true"></i>
-                    </button>
-                    <span class="px-3 py-2 bg-gray-50 text-sm font-medium">
-                        {{ currentPage + 1 }} of {{ totalPages }}
-                    </span>
-                    <button class="pagination-btn px-3 cursor-pointer" aria-label="go to next page" (click)="nextPage()"
-                        [disabled]="currentPage >= (totalPages - 1)">
-                        <i class="fa fa-angle-right text-lg"
-                            [ngClass]="currentPage >= (totalPages - 1) ? 'text-gray-200': ''" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div> -->
     </div>
 </section>

@@ -24,8 +24,8 @@ export class PostsService {
   }
 
   update(body: any) {
-    return this.http.put(this.postUrl, {
-      body: body,
+    return this.http.put(`${this.postUrl}/${body.id}`, {
+      body: JSON.stringify(body),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       }

@@ -2,7 +2,7 @@
 <div class="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
     <div class="">
         <div class="">
-            <div class="mx-auto max-w-screen-sm bg-white rounded-md">
+            <div class="mx-auto max-w-screen-sm bg-white px-8 py-6 rounded-md">
                 <div class="">
                     <form class="form" (ngSubmit)="updatePost()">
                         <div class="input-group my-4">
@@ -18,12 +18,20 @@
                             </div>
                             <div class="input-group my-4">
                                 <label for="body" class="label font-medium text-md">Body</label>
-                                <textarea name="" class="w-full border border-gray-300 outline-none px-4 py-2" id="body" 
-                                cols="30" rows="6" [(ngModel)]="updatedData.body" [ngModelOptions]="{standalone: true}" required></textarea>
+                                <textarea name="" class="w-full text-sm border border-gray-300 outline-none px-4 py-2" id="body" 
+                                cols="35" rows="6" [(ngModel)]="updatedData.body" [ngModelOptions]="{standalone: true}" required></textarea>
                         </div>
                         <div class="input-group my-4">
-                            <button type="submit"
-                                class="w-full border border-gray-300 outline-none px-4 py-2">Submit</button>
+                            <div class="flex gap-4">
+                                <button type="button" (click)="cancelEdit()"
+                                    class="w-full border border-gray-300 outline-none px-4 py-2">
+                                    Cancel
+                                </button>
+                                <button type="submit"
+                                    class="w-full border border-gray-300 outline-none px-4 py-2">
+                                    Submit
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

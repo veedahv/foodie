@@ -7,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestimonialsComponent implements OnInit {
 
-  // testimonials = Array(4).fill({
-  //   name: 'a',
-  //   testimony: 'hfhfhfhfhfhfhfhfhf'
-  // });
   testimonials = [
     {
     name: 'Jane Doe',
@@ -34,18 +30,11 @@ export class TestimonialsComponent implements OnInit {
   },
 ];
 
-  // items = ['item1', 'item2', 'item3', 'item4'];
-
-  // addItem(newItem: string) {
-  //   this.items.push(newItem);
-  // }
-
   testimonialIndex: number = 0;
   totalTestimonies: number = this.testimonials.length - 1;
 
   slideReview(index: any) {
     this.testimonialIndex = Number(index);
-    // console.log('on testimony ', this.testimonialIndex, ' index ', index)
   }
 
   constructor() { }

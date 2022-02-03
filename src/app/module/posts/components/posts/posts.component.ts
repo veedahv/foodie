@@ -10,7 +10,7 @@ import { PostsService } from 'src/app/services/posts.service';
 
 export class PostsComponent implements OnInit {
 
-  
+
   updatedData = {
     id: 1,
     userId: 190,
@@ -20,30 +20,31 @@ export class PostsComponent implements OnInit {
 
   constructor(private posts: PostsService, private formBuilder: FormBuilder,) { }
 
-  // post: any = []
-  // postForm: FormGroup = this.formBuilder.group({
-  //   userId: '',
-  //   title: '',
-  //   body: ''
-  // });
-  
   ngOnInit() {
+
+  }
+
+  @Output() updatedPost = new EventEmitter<Object>();
+  @Output() cancelPost = new EventEmitter<Boolean>();
+
+  @Input() set post(data: any) {
+    this.updatedData = Object.assign({}, data)
+  }
+  @Input() postIndex: number = 0;
+
+  cancelEdit() {
+    this.cancelPost.emit(false);
+    console.log('cancel');
     
   }
-  
-  @Output() updatedPost = new EventEmitter<Object>();
-
-  @Input() set post(data:any){
-    this.updatedData = Object.assign({}, data)
-    }
-
   updatePost() {
-    this.updatedPost.emit(this.updatedData);
+    console.log('update');
     // if (this.postForm.value.userId !== '' || this.postForm.value.title !== '' || this.postForm.value.body !== '') {
-    //   this.posts.create(JSON.stringify(this.postForm.value)).subscribe(data => {
-    //     // this.post = data;
-    //     // console.log(this.post);
-    //   })      
+      this.posts.update(this.updatedData).subscribe(data => {
+        this.updatedPost.emit(this.updatedData);
+        this.cancelPost.emit(false);
+        console.log(data);
+      })      
     // alert(`Your form has been submitted`);
     // this.postForm.reset();
     // } else {
