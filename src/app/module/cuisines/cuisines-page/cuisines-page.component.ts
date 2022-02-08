@@ -24,6 +24,7 @@ export class CuisinesPageComponent implements OnInit {
       this.cuisines = data;
       this.totalPages = Math.ceil(this.cuisines.meals.length / 24);
       this.cuisinesCurrentPage = this.cuisines.meals.slice(this.currentPage * 24, ((this.currentPage * 24) + 24));
+      console.log(this.cuisinesCurrentPage);
     })
   }
 

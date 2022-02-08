@@ -1,0 +1,28 @@
+<!-- <p>cart-card works!</p> -->
+
+<div class="gap-3" *ngFor="let item of cartItems">
+    <!-- <app-cart-card></app-cart-card> -->
+    <div class="card py-5 overflow-hidden bg-white flex items-center gap-3">
+        <div class="w-3/12 flex-auto">
+            <img src="{{ item.strMealThumb }}" alt="" class="card-img">
+        </div>
+        <div class="w-9/12 flex-auto">
+            <div class="">
+                <p class="text-lg font-medium">{{ item.strMeal }}</p>
+                <p class="price text-base font-bold">$4.00</p>
+            </div>
+        </div>
+        <div class="w-8 flex-none">
+            <div class="flex flex-col border items-center">
+                <button class="w-full">-</button>
+                <span class="qty">1</span>
+                <button class="w-full">+</button>
+            </div>
+        </div>
+        <div class="w-8 flex-none">
+            <button class="border rounded-sm w-full">
+                x
+            </button>
+        </div>
+    </div>
+</div>
